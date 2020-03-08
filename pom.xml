@@ -42,13 +42,10 @@
         <mysql-connector.version>8.0.15</mysql-connector.version>
         <spring-data-commons.version>2.1.5.RELEASE</spring-data-commons.version>
         <jjwt.version>0.9.0</jjwt.version>
-        <aliyun-oss.version>2.5.0</aliyun-oss.version>
         <logstash-logback.version>5.3</logstash-logback.version>
         <admin-starter-server.version>2.1.5</admin-starter-server.version>
         <minio.version>3.0.10</minio.version>
         <common.version>1.0-SNAPSHOT</common.version>
-        <mbg.version>1.0-SNAPSHOT</mbg.version>
-        <security.version>1.0-SNAPSHOT</security.version>
     </properties>
     <dependencies>
         <dependency>
@@ -65,18 +62,24 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!--通用工具包mbg+security+common-->
+            <dependency>
+                <groupId>com.xuzhennan.top</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
             <!--Spring Cloud 相关依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -84,25 +87,6 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!--通用模块-->
-            <dependency>
-                <groupId>com.xuzhennan.top</groupId>
-                <artifactId>common</artifactId>
-                <version>${common.version}</version>
-            </dependency>
-
-            <!--MyBatis分页插件starter-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper-starter.version}</version>
-            </dependency>
-            <!--MyBatis分页插件-->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>${pagehelper.version}</version>
             </dependency>
             <!--集成druid连接池-->
             <dependency>
@@ -127,7 +111,18 @@
                 <artifactId>knife4j-spring-ui</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
-
+            <!--MyBatis分页插件starter-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-starter.version}</version>
+            </dependency>
+            <!--MyBatis分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
             <!-- MyBatis 生成器 -->
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
@@ -157,12 +152,6 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
-            </dependency>
-            <!-- 阿里云OSS -->
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun-oss.version}</version>
             </dependency>
             <!--集成logstash-->
             <dependency>
