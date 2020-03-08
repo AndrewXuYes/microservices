@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.xuzhennan.top</groupId>
     <artifactId>microservices</artifactId>
     <packaging>pom</packaging>
@@ -13,15 +20,8 @@
         <module>registry</module>
         <module>config</module>
         <module>monitor</module>
-
+        <module>common</module>
     </modules>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,6 +47,7 @@
         <minio.version>3.0.10</minio.version>
         <common.version>1.0-SNAPSHOT</common.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -173,4 +174,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>
