@@ -9,10 +9,10 @@
         <module name="common" />
         <module name="monitor" />
         <module name="registry" />
-        <module name="config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="com.xuzhennan.top.config" target="1.8" />
       <module name="common" target="1.8" />
       <module name="config" target="1.8" />
       <module name="microservices" target="1.8" />
@@ -22,6 +22,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="com.xuzhennan.top.config" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="microservices" options="-parameters" />
