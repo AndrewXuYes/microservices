@@ -2,17 +2,17 @@ server:
   port: 8301
 spring:
   application:
-    name: com.xuzhennan.top.config
+    name: config
   profiles:
     active: native #使用本地配置，要使用git存储改为git即可
   cloud:
     config:
       server:
         native: #本地仓库存储
-          search-locations: classpath:/com.xuzhennan.top.config/{application}
-        git: #Git仓库存储
-          uri: https://github.com/AndrewXuYes/microservices.git
-          username: root
-          password: root
-          clone-on-start: true
-          search-paths: '{application}'
+          search-locations: classpath:/config/{application}
+#        git: #Git仓库存储
+#          uri: https://gitee.com/macrozheng/mall-config.git
+#          username: macro
+#          password: 123456
+#          clone-on-start: true
+#          search-paths: '{application}'
