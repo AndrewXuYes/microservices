@@ -75,7 +75,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--通用工具包mbg+security+common-->
+            <!--通用工具包mbg+common-->
             <dependency>
                 <groupId>com.xuzhennan.top</groupId>
                 <artifactId>common</artifactId>

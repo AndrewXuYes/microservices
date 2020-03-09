@@ -1,3 +1,5 @@
+package com.xuzhennan.top;
+
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
@@ -17,7 +19,7 @@ public class Generator {
         //当生成的代码重复时，覆盖原代码
         boolean overwrite = true;
         //读取我们的 MBG 配置文件
-        InputStream is = Generator.class.getResourceAsStream("/generatorConfiguration.xml");
+        InputStream is = Generator.class.getResourceAsStream("/generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(is);
         is.close();

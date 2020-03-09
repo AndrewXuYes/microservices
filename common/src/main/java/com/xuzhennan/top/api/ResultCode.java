@@ -1,4 +1,4 @@
-package api;
+package com.xuzhennan.top.api;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package api;
+package com.xuzhennan.top.api;
 
 /**
  * 封装API的错误码

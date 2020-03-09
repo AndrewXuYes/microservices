@@ -1,4 +1,4 @@
-package api;
+package com.xuzhennan.top.api;
 
 import com.github.pagehelper.PageInfo;
 import lombok.Data;
