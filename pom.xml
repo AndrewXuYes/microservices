@@ -21,6 +21,7 @@
         <module>registry</module>
         <module>monitor</module>
         <module>config</module>
+        <module>order</module>
     </modules>
 
     <properties>
