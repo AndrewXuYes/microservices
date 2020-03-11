@@ -5,10 +5,10 @@ spring:
     user:
       name: admin
       password: admin
-  boot:  # 不显示admin-server的监控信息
-    admin:
-      discovery:
-        ignored-services: ${spring.application.name}
+#  boot:  # 不显示admin-server的监控信息
+#    admin:
+#      discovery:
+#        ignored-services: ${spring.application.name}
 server:
   port: 8101
 eureka:
