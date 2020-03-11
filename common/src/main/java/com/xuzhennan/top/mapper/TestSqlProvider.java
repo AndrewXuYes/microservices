@@ -1,55 +1,60 @@
 package com.xuzhennan.top.mapper;
 
-import com.xuzhennan.top.model.Product;
-import com.xuzhennan.top.model.ProductExample.Criteria;
-import com.xuzhennan.top.model.ProductExample.Criterion;
-import com.xuzhennan.top.model.ProductExample;
+import com.xuzhennan.top.model.Test;
+import com.xuzhennan.top.model.TestExample.Criteria;
+import com.xuzhennan.top.model.TestExample.Criterion;
+import com.xuzhennan.top.model.TestExample;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class ProductSqlProvider {
+public class TestSqlProvider {
 
-    public String countByExample(ProductExample example) {
+    public String countByExample(TestExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("product");
+        sql.SELECT("count(*)").FROM("test");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(ProductExample example) {
+    public String deleteByExample(TestExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("product");
+        sql.DELETE_FROM("test");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(Product record) {
+    public String insertSelective(Test record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("product");
+        sql.INSERT_INTO("test");
         
-        if (record.getName() != null) {
-            sql.VALUES("name", "#{name,jdbcType=CHAR}");
+        if (record.getTest1() != null) {
+            sql.VALUES("test1", "#{test1,jdbcType=BIT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.VALUES("price", "#{price,jdbcType=DECIMAL}");
+        if (record.getTest2() != null) {
+            sql.VALUES("test2", "#{test2,jdbcType=CHAR}");
+        }
+        
+        if (record.getTest3() != null) {
+            sql.VALUES("test3", "#{test3,jdbcType=DATE}");
         }
         
         return sql.toString();
     }
 
-    public String selectByExample(ProductExample example) {
+    public String selectByExample(TestExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("name");
-        sql.SELECT("price");
-        sql.FROM("product");
+        sql.SELECT("test1");
+        sql.SELECT("test2");
+        sql.SELECT("test3");
+        sql.FROM("test");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -60,22 +65,26 @@ public class ProductSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        Product record = (Product) parameter.get("record");
-        ProductExample example = (ProductExample) parameter.get("example");
+        Test record = (Test) parameter.get("record");
+        TestExample example = (TestExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("product");
+        sql.UPDATE("test");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getName() != null) {
-            sql.SET("name = #{record.name,jdbcType=CHAR}");
+        if (record.getTest1() != null) {
+            sql.SET("test1 = #{record.test1,jdbcType=BIT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.SET("price = #{record.price,jdbcType=DECIMAL}");
+        if (record.getTest2() != null) {
+            sql.SET("test2 = #{record.test2,jdbcType=CHAR}");
+        }
+        
+        if (record.getTest3() != null) {
+            sql.SET("test3 = #{record.test3,jdbcType=DATE}");
         }
         
         applyWhere(sql, example, true);
@@ -84,27 +93,32 @@ public class ProductSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("product");
+        sql.UPDATE("test");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("name = #{record.name,jdbcType=CHAR}");
-        sql.SET("price = #{record.price,jdbcType=DECIMAL}");
+        sql.SET("test1 = #{record.test1,jdbcType=BIT}");
+        sql.SET("test2 = #{record.test2,jdbcType=CHAR}");
+        sql.SET("test3 = #{record.test3,jdbcType=DATE}");
         
-        ProductExample example = (ProductExample) parameter.get("example");
+        TestExample example = (TestExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(Product record) {
+    public String updateByPrimaryKeySelective(Test record) {
         SQL sql = new SQL();
-        sql.UPDATE("product");
+        sql.UPDATE("test");
         
-        if (record.getName() != null) {
-            sql.SET("name = #{name,jdbcType=CHAR}");
+        if (record.getTest1() != null) {
+            sql.SET("test1 = #{test1,jdbcType=BIT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.SET("price = #{price,jdbcType=DECIMAL}");
+        if (record.getTest2() != null) {
+            sql.SET("test2 = #{test2,jdbcType=CHAR}");
+        }
+        
+        if (record.getTest3() != null) {
+            sql.SET("test3 = #{test3,jdbcType=DATE}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
@@ -112,7 +126,7 @@ public class ProductSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, ProductExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, TestExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

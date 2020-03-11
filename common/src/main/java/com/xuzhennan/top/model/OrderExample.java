@@ -164,143 +164,203 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIsNull() {
-            addCriterion("user is null");
+        public Criteria andProductnameIsNull() {
+            addCriterion("productname is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserIsNotNull() {
-            addCriterion("user is not null");
+        public Criteria andProductnameIsNotNull() {
+            addCriterion("productname is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserEqualTo(String value) {
-            addCriterion("user =", value, "user");
+        public Criteria andProductnameEqualTo(String value) {
+            addCriterion("productname =", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserNotEqualTo(String value) {
-            addCriterion("user <>", value, "user");
+        public Criteria andProductnameNotEqualTo(String value) {
+            addCriterion("productname <>", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserGreaterThan(String value) {
-            addCriterion("user >", value, "user");
+        public Criteria andProductnameGreaterThan(String value) {
+            addCriterion("productname >", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserGreaterThanOrEqualTo(String value) {
-            addCriterion("user >=", value, "user");
+        public Criteria andProductnameGreaterThanOrEqualTo(String value) {
+            addCriterion("productname >=", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserLessThan(String value) {
-            addCriterion("user <", value, "user");
+        public Criteria andProductnameLessThan(String value) {
+            addCriterion("productname <", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserLessThanOrEqualTo(String value) {
-            addCriterion("user <=", value, "user");
+        public Criteria andProductnameLessThanOrEqualTo(String value) {
+            addCriterion("productname <=", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserLike(String value) {
-            addCriterion("user like", value, "user");
+        public Criteria andProductnameLike(String value) {
+            addCriterion("productname like", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserNotLike(String value) {
-            addCriterion("user not like", value, "user");
+        public Criteria andProductnameNotLike(String value) {
+            addCriterion("productname not like", value, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserIn(List<String> values) {
-            addCriterion("user in", values, "user");
+        public Criteria andProductnameIn(List<String> values) {
+            addCriterion("productname in", values, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserNotIn(List<String> values) {
-            addCriterion("user not in", values, "user");
+        public Criteria andProductnameNotIn(List<String> values) {
+            addCriterion("productname not in", values, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserBetween(String value1, String value2) {
-            addCriterion("user between", value1, value2, "user");
+        public Criteria andProductnameBetween(String value1, String value2) {
+            addCriterion("productname between", value1, value2, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andUserNotBetween(String value1, String value2) {
-            addCriterion("user not between", value1, value2, "user");
+        public Criteria andProductnameNotBetween(String value1, String value2) {
+            addCriterion("productname not between", value1, value2, "productname");
             return (Criteria) this;
         }
 
-        public Criteria andProductIsNull() {
-            addCriterion("product is null");
+        public Criteria andUsernameIsNull() {
+            addCriterion("username is null");
             return (Criteria) this;
         }
 
-        public Criteria andProductIsNotNull() {
-            addCriterion("product is not null");
+        public Criteria andUsernameIsNotNull() {
+            addCriterion("username is not null");
             return (Criteria) this;
         }
 
-        public Criteria andProductEqualTo(String value) {
-            addCriterion("product =", value, "product");
+        public Criteria andUsernameEqualTo(String value) {
+            addCriterion("username =", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductNotEqualTo(String value) {
-            addCriterion("product <>", value, "product");
+        public Criteria andUsernameNotEqualTo(String value) {
+            addCriterion("username <>", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductGreaterThan(String value) {
-            addCriterion("product >", value, "product");
+        public Criteria andUsernameGreaterThan(String value) {
+            addCriterion("username >", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductGreaterThanOrEqualTo(String value) {
-            addCriterion("product >=", value, "product");
+        public Criteria andUsernameGreaterThanOrEqualTo(String value) {
+            addCriterion("username >=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductLessThan(String value) {
-            addCriterion("product <", value, "product");
+        public Criteria andUsernameLessThan(String value) {
+            addCriterion("username <", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductLessThanOrEqualTo(String value) {
-            addCriterion("product <=", value, "product");
+        public Criteria andUsernameLessThanOrEqualTo(String value) {
+            addCriterion("username <=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductLike(String value) {
-            addCriterion("product like", value, "product");
+        public Criteria andUsernameLike(String value) {
+            addCriterion("username like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductNotLike(String value) {
-            addCriterion("product not like", value, "product");
+        public Criteria andUsernameNotLike(String value) {
+            addCriterion("username not like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductIn(List<String> values) {
-            addCriterion("product in", values, "product");
+        public Criteria andUsernameIn(List<String> values) {
+            addCriterion("username in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductNotIn(List<String> values) {
-            addCriterion("product not in", values, "product");
+        public Criteria andUsernameNotIn(List<String> values) {
+            addCriterion("username not in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductBetween(String value1, String value2) {
-            addCriterion("product between", value1, value2, "product");
+        public Criteria andUsernameBetween(String value1, String value2) {
+            addCriterion("username between", value1, value2, "username");
             return (Criteria) this;
         }
 
-        public Criteria andProductNotBetween(String value1, String value2) {
-            addCriterion("product not between", value1, value2, "product");
+        public Criteria andUsernameNotBetween(String value1, String value2) {
+            addCriterion("username not between", value1, value2, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceIsNull() {
+            addCriterion("sumprice is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceIsNotNull() {
+            addCriterion("sumprice is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceEqualTo(Long value) {
+            addCriterion("sumprice =", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceNotEqualTo(Long value) {
+            addCriterion("sumprice <>", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceGreaterThan(Long value) {
+            addCriterion("sumprice >", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceGreaterThanOrEqualTo(Long value) {
+            addCriterion("sumprice >=", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceLessThan(Long value) {
+            addCriterion("sumprice <", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceLessThanOrEqualTo(Long value) {
+            addCriterion("sumprice <=", value, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceIn(List<Long> values) {
+            addCriterion("sumprice in", values, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceNotIn(List<Long> values) {
+            addCriterion("sumprice not in", values, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceBetween(Long value1, Long value2) {
+            addCriterion("sumprice between", value1, value2, "sumprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andSumpriceNotBetween(Long value1, Long value2) {
+            addCriterion("sumprice not between", value1, value2, "sumprice");
             return (Criteria) this;
         }
 
@@ -361,66 +421,6 @@ public class OrderExample {
 
         public Criteria andNumberNotBetween(Integer value1, Integer value2) {
             addCriterion("number not between", value1, value2, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceIsNull() {
-            addCriterion("sumprice is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceIsNotNull() {
-            addCriterion("sumprice is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceEqualTo(Float value) {
-            addCriterion("sumprice =", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceNotEqualTo(Float value) {
-            addCriterion("sumprice <>", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceGreaterThan(Float value) {
-            addCriterion("sumprice >", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceGreaterThanOrEqualTo(Float value) {
-            addCriterion("sumprice >=", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceLessThan(Float value) {
-            addCriterion("sumprice <", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceLessThanOrEqualTo(Float value) {
-            addCriterion("sumprice <=", value, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceIn(List<Float> values) {
-            addCriterion("sumprice in", values, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceNotIn(List<Float> values) {
-            addCriterion("sumprice not in", values, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceBetween(Float value1, Float value2) {
-            addCriterion("sumprice between", value1, value2, "sumprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andSumpriceNotBetween(Float value1, Float value2) {
-            addCriterion("sumprice not between", value1, value2, "sumprice");
             return (Criteria) this;
         }
     }

@@ -1,16 +1,18 @@
 package com.xuzhennan.top.model;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
-public class ProductExample {
+public class TestExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ProductExample() {
+    public TestExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,6 +106,32 @@ public class ProductExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
+        }
+
         public Criteria andIdIsNull() {
             addCriterion("id is null");
             return (Criteria) this;
@@ -164,133 +192,193 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andTest1IsNull() {
+            addCriterion("test1 is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andTest1IsNotNull() {
+            addCriterion("test1 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andTest1EqualTo(Boolean value) {
+            addCriterion("test1 =", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andTest1NotEqualTo(Boolean value) {
+            addCriterion("test1 <>", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andTest1GreaterThan(Boolean value) {
+            addCriterion("test1 >", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andTest1GreaterThanOrEqualTo(Boolean value) {
+            addCriterion("test1 >=", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andTest1LessThan(Boolean value) {
+            addCriterion("test1 <", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andTest1LessThanOrEqualTo(Boolean value) {
+            addCriterion("test1 <=", value, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andTest1In(List<Boolean> values) {
+            addCriterion("test1 in", values, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andTest1NotIn(List<Boolean> values) {
+            addCriterion("test1 not in", values, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andTest1Between(Boolean value1, Boolean value2) {
+            addCriterion("test1 between", value1, value2, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andTest1NotBetween(Boolean value1, Boolean value2) {
+            addCriterion("test1 not between", value1, value2, "test1");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andTest2IsNull() {
+            addCriterion("test2 is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andTest2IsNotNull() {
+            addCriterion("test2 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIsNull() {
-            addCriterion("price is null");
+        public Criteria andTest2EqualTo(String value) {
+            addCriterion("test2 =", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIsNotNull() {
-            addCriterion("price is not null");
+        public Criteria andTest2NotEqualTo(String value) {
+            addCriterion("test2 <>", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceEqualTo(Long value) {
-            addCriterion("price =", value, "price");
+        public Criteria andTest2GreaterThan(String value) {
+            addCriterion("test2 >", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotEqualTo(Long value) {
-            addCriterion("price <>", value, "price");
+        public Criteria andTest2GreaterThanOrEqualTo(String value) {
+            addCriterion("test2 >=", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThan(Long value) {
-            addCriterion("price >", value, "price");
+        public Criteria andTest2LessThan(String value) {
+            addCriterion("test2 <", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceGreaterThanOrEqualTo(Long value) {
-            addCriterion("price >=", value, "price");
+        public Criteria andTest2LessThanOrEqualTo(String value) {
+            addCriterion("test2 <=", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThan(Long value) {
-            addCriterion("price <", value, "price");
+        public Criteria andTest2Like(String value) {
+            addCriterion("test2 like", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceLessThanOrEqualTo(Long value) {
-            addCriterion("price <=", value, "price");
+        public Criteria andTest2NotLike(String value) {
+            addCriterion("test2 not like", value, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceIn(List<Long> values) {
-            addCriterion("price in", values, "price");
+        public Criteria andTest2In(List<String> values) {
+            addCriterion("test2 in", values, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotIn(List<Long> values) {
-            addCriterion("price not in", values, "price");
+        public Criteria andTest2NotIn(List<String> values) {
+            addCriterion("test2 not in", values, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceBetween(Long value1, Long value2) {
-            addCriterion("price between", value1, value2, "price");
+        public Criteria andTest2Between(String value1, String value2) {
+            addCriterion("test2 between", value1, value2, "test2");
             return (Criteria) this;
         }
 
-        public Criteria andPriceNotBetween(Long value1, Long value2) {
-            addCriterion("price not between", value1, value2, "price");
+        public Criteria andTest2NotBetween(String value1, String value2) {
+            addCriterion("test2 not between", value1, value2, "test2");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3IsNull() {
+            addCriterion("test3 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3IsNotNull() {
+            addCriterion("test3 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3EqualTo(Date value) {
+            addCriterionForJDBCDate("test3 =", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3NotEqualTo(Date value) {
+            addCriterionForJDBCDate("test3 <>", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3GreaterThan(Date value) {
+            addCriterionForJDBCDate("test3 >", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3GreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("test3 >=", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3LessThan(Date value) {
+            addCriterionForJDBCDate("test3 <", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3LessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("test3 <=", value, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3In(List<Date> values) {
+            addCriterionForJDBCDate("test3 in", values, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3NotIn(List<Date> values) {
+            addCriterionForJDBCDate("test3 not in", values, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3Between(Date value1, Date value2) {
+            addCriterionForJDBCDate("test3 between", value1, value2, "test3");
+            return (Criteria) this;
+        }
+
+        public Criteria andTest3NotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("test3 not between", value1, value2, "test3");
             return (Criteria) this;
         }
     }

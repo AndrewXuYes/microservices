@@ -6,10 +6,8 @@ import java.io.Serializable;
 public class User implements Serializable {
     private Integer id;
 
-    @ApiModelProperty(value = "名字")
     private String name;
 
-    @ApiModelProperty(value = "年龄")
     private Integer age;
 
     private static final long serialVersionUID = 1L;

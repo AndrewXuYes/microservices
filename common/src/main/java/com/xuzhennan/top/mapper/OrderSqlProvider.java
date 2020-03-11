@@ -29,20 +29,20 @@ public class OrderSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("order");
         
-        if (record.getUser() != null) {
-            sql.VALUES("user", "#{user,jdbcType=CHAR}");
+        if (record.getProductname() != null) {
+            sql.VALUES("productname", "#{productname,jdbcType=CHAR}");
         }
         
-        if (record.getProduct() != null) {
-            sql.VALUES("product", "#{product,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.VALUES("username", "#{username,jdbcType=CHAR}");
+        }
+        
+        if (record.getSumprice() != null) {
+            sql.VALUES("sumprice", "#{sumprice,jdbcType=DECIMAL}");
         }
         
         if (record.getNumber() != null) {
             sql.VALUES("number", "#{number,jdbcType=INTEGER}");
-        }
-        
-        if (record.getSumprice() != null) {
-            sql.VALUES("sumprice", "#{sumprice,jdbcType=REAL}");
         }
         
         return sql.toString();
@@ -55,10 +55,10 @@ public class OrderSqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("user");
-        sql.SELECT("product");
-        sql.SELECT("number");
+        sql.SELECT("productname");
+        sql.SELECT("username");
         sql.SELECT("sumprice");
+        sql.SELECT("number");
         sql.FROM("order");
         applyWhere(sql, example, false);
         
@@ -80,20 +80,20 @@ public class OrderSqlProvider {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getUser() != null) {
-            sql.SET("user = #{record.user,jdbcType=CHAR}");
+        if (record.getProductname() != null) {
+            sql.SET("productname = #{record.productname,jdbcType=CHAR}");
         }
         
-        if (record.getProduct() != null) {
-            sql.SET("product = #{record.product,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.SET("username = #{record.username,jdbcType=CHAR}");
+        }
+        
+        if (record.getSumprice() != null) {
+            sql.SET("sumprice = #{record.sumprice,jdbcType=DECIMAL}");
         }
         
         if (record.getNumber() != null) {
             sql.SET("number = #{record.number,jdbcType=INTEGER}");
-        }
-        
-        if (record.getSumprice() != null) {
-            sql.SET("sumprice = #{record.sumprice,jdbcType=REAL}");
         }
         
         applyWhere(sql, example, true);
@@ -105,10 +105,10 @@ public class OrderSqlProvider {
         sql.UPDATE("order");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("user = #{record.user,jdbcType=CHAR}");
-        sql.SET("product = #{record.product,jdbcType=CHAR}");
+        sql.SET("productname = #{record.productname,jdbcType=CHAR}");
+        sql.SET("username = #{record.username,jdbcType=CHAR}");
+        sql.SET("sumprice = #{record.sumprice,jdbcType=DECIMAL}");
         sql.SET("number = #{record.number,jdbcType=INTEGER}");
-        sql.SET("sumprice = #{record.sumprice,jdbcType=REAL}");
         
         OrderExample example = (OrderExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -119,20 +119,20 @@ public class OrderSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("order");
         
-        if (record.getUser() != null) {
-            sql.SET("user = #{user,jdbcType=CHAR}");
+        if (record.getProductname() != null) {
+            sql.SET("productname = #{productname,jdbcType=CHAR}");
         }
         
-        if (record.getProduct() != null) {
-            sql.SET("product = #{product,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.SET("username = #{username,jdbcType=CHAR}");
+        }
+        
+        if (record.getSumprice() != null) {
+            sql.SET("sumprice = #{sumprice,jdbcType=DECIMAL}");
         }
         
         if (record.getNumber() != null) {
             sql.SET("number = #{number,jdbcType=INTEGER}");
-        }
-        
-        if (record.getSumprice() != null) {
-            sql.SET("sumprice = #{sumprice,jdbcType=REAL}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");

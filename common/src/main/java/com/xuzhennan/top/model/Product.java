@@ -6,11 +6,9 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private Integer id;
 
-    @ApiModelProperty(value = "名字")
     private String name;
 
-    @ApiModelProperty(value = "价格")
-    private Float price;
+    private Long price;
 
     private static final long serialVersionUID = 1L;
 
@@ -30,11 +28,11 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

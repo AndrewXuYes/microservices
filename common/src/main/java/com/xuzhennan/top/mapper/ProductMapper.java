@@ -33,7 +33,7 @@ public interface ProductMapper {
 
     @Insert({
         "insert into product (name, price)",
-        "values (#{name,jdbcType=CHAR}, #{price,jdbcType=REAL})"
+        "values (#{name,jdbcType=CHAR}, #{price,jdbcType=DECIMAL})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
     int insert(Product record);
@@ -46,7 +46,7 @@ public interface ProductMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.REAL)
+        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
     })
     List<Product> selectByExampleWithRowbounds(ProductExample example, RowBounds rowBounds);
 
@@ -54,7 +54,7 @@ public interface ProductMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.REAL)
+        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
     })
     List<Product> selectByExample(ProductExample example);
 
@@ -67,7 +67,7 @@ public interface ProductMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.REAL)
+        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
     })
     Product selectByPrimaryKey(Integer id);
 
@@ -83,7 +83,7 @@ public interface ProductMapper {
     @Update({
         "update product",
         "set name = #{name,jdbcType=CHAR},",
-          "price = #{price,jdbcType=REAL}",
+          "price = #{price,jdbcType=DECIMAL}",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Product record);

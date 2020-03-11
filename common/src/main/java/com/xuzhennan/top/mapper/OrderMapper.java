@@ -32,10 +32,10 @@ public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into order (user, product, ",
-        "number, sumprice)",
-        "values (#{user,jdbcType=CHAR}, #{product,jdbcType=CHAR}, ",
-        "#{number,jdbcType=INTEGER}, #{sumprice,jdbcType=REAL})"
+        "insert into order (productname, username, ",
+        "sumprice, number)",
+        "values (#{productname,jdbcType=CHAR}, #{username,jdbcType=CHAR}, ",
+        "#{sumprice,jdbcType=DECIMAL}, #{number,jdbcType=INTEGER})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
     int insert(Order record);
@@ -47,35 +47,35 @@ public interface OrderMapper {
     @SelectProvider(type=OrderSqlProvider.class, method="selectByExample")
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="user", property="user", jdbcType=JdbcType.CHAR),
-        @Result(column="product", property="product", jdbcType=JdbcType.CHAR),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.REAL)
+        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
+        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
+        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
+        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
     })
     List<Order> selectByExampleWithRowbounds(OrderExample example, RowBounds rowBounds);
 
     @SelectProvider(type=OrderSqlProvider.class, method="selectByExample")
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="user", property="user", jdbcType=JdbcType.CHAR),
-        @Result(column="product", property="product", jdbcType=JdbcType.CHAR),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.REAL)
+        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
+        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
+        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
+        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
     })
     List<Order> selectByExample(OrderExample example);
 
     @Select({
         "select",
-        "id, user, product, number, sumprice",
+        "id, productname, username, sumprice, number",
         "from order",
         "where id = #{id,jdbcType=INTEGER}"
     })
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="user", property="user", jdbcType=JdbcType.CHAR),
-        @Result(column="product", property="product", jdbcType=JdbcType.CHAR),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.REAL)
+        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
+        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
+        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
+        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
     })
     Order selectByPrimaryKey(Integer id);
 
@@ -90,10 +90,10 @@ public interface OrderMapper {
 
     @Update({
         "update order",
-        "set user = #{user,jdbcType=CHAR},",
-          "product = #{product,jdbcType=CHAR},",
-          "number = #{number,jdbcType=INTEGER},",
-          "sumprice = #{sumprice,jdbcType=REAL}",
+        "set productname = #{productname,jdbcType=CHAR},",
+          "username = #{username,jdbcType=CHAR},",
+          "sumprice = #{sumprice,jdbcType=DECIMAL},",
+          "number = #{number,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Order record);
