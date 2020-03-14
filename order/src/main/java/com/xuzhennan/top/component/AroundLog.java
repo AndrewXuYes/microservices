@@ -1,9 +1,9 @@
-package com.xuzhennan.top.aop;
+package com.xuzhennan.top.component;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Justalog {
+public @interface AroundLog {
     String value() default "v1";
 }

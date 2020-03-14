@@ -20,6 +20,9 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+
+//    http://localhost:8082/doc.html#/home
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
