@@ -1,4 +1,4 @@
-package com.xuzhennan.top.registry;
+package com.xuzhennan.top;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

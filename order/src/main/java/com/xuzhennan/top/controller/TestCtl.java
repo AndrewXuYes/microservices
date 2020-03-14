@@ -1,7 +1,7 @@
-package com.xuzhennan.top.order.controller;
+package com.xuzhennan.top.controller;
 
 import com.xuzhennan.top.model.Test;
-import com.xuzhennan.top.order.service.TestService;
+import com.xuzhennan.top.service.TestService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;

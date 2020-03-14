@@ -1,6 +1,6 @@
-package com.xuzhennan.top.order.controller;
+package com.xuzhennan.top.controller;
 
-import com.xuzhennan.top.order.aop.Justalog;
+import com.xuzhennan.top.aop.Justalog;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class Hello {
     @Justalog
     @ApiOperation("打招呼页面")
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String sayHello0(String astr) {
+    public String Hello(String astr) {
         log.info("helloInit");
         return "谢谢观看:这是初始化页面";
     }

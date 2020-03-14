@@ -1,4 +1,4 @@
-package com.xuzhennan.top.config;
+package com.xuzhennan.top;
 
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import org.springframework.context.annotation.Configuration;

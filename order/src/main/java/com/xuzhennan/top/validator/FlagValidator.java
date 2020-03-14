@@ -1,4 +1,4 @@
-package com.xuzhennan.top.order.validator;
+package com.xuzhennan.top.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

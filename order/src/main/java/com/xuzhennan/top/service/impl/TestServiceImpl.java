@@ -1,9 +1,9 @@
-package com.xuzhennan.top.order.service.impl;
+package com.xuzhennan.top.service.impl;
 
 import com.xuzhennan.top.mapper.TestMapper;
 import com.xuzhennan.top.model.Test;
 import com.xuzhennan.top.model.TestExample;
-import com.xuzhennan.top.order.service.TestService;
+import com.xuzhennan.top.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

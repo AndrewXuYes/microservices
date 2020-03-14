@@ -1,4 +1,4 @@
-package com.xuzhennan.top.order;
+package com.xuzhennan.top;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.xuzhennan.top.order.aop;
+package com.xuzhennan.top.aop;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Order(2)
 public class WebLogAspect {
 
-    @Pointcut("@annotation(Justalog)")
+    @Pointcut("@annotation(com.xuzhennan.top.aop.Justalog)")
     public void LogJust() {
     }
 
