@@ -32,8 +32,10 @@ public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into user (name, age)",
-        "values (#{name,jdbcType=CHAR}, #{age,jdbcType=INTEGER})"
+        "insert into user (name, age, ",
+        "status)",
+        "values (#{name,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, ",
+        "#{status,jdbcType=INTEGER})"
     })
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
     int insert(User record);
@@ -46,7 +48,8 @@ public interface UserMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER)
+        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
     })
     List<User> selectByExampleWithRowbounds(UserExample example, RowBounds rowBounds);
 
@@ -54,20 +57,22 @@ public interface UserMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER)
+        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
     })
     List<User> selectByExample(UserExample example);
 
     @Select({
         "select",
-        "id, name, age",
+        "id, name, age, status",
         "from user",
         "where id = #{id,jdbcType=INTEGER}"
     })
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER)
+        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
     })
     User selectByPrimaryKey(Integer id);
 
@@ -83,7 +88,8 @@ public interface UserMapper {
     @Update({
         "update user",
         "set name = #{name,jdbcType=CHAR},",
-          "age = #{age,jdbcType=INTEGER}",
+          "age = #{age,jdbcType=INTEGER},",
+          "status = #{status,jdbcType=INTEGER}",
         "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(User record);

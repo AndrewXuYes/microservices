@@ -10,6 +10,8 @@ public class User implements Serializable {
 
     private Integer age;
 
+    private Integer status;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -36,6 +38,14 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -45,6 +55,7 @@ public class User implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", age=").append(age);
+        sb.append(", status=").append(status);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

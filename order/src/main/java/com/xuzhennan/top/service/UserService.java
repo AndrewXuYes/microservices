@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface UserService {
 
-    User creatUser(User user);
+    int creatUser(User user);
 
-    User deletcUser(User user);
+    int deletcUser(int user);
 
-    User changeUser(User user);
+    int changeUser(User user);
 
     User findUser(User user);
 

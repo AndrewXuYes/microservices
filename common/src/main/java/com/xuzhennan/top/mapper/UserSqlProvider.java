@@ -37,6 +37,10 @@ public class UserSqlProvider {
             sql.VALUES("age", "#{age,jdbcType=INTEGER}");
         }
         
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+        
         return sql.toString();
     }
 
@@ -49,6 +53,7 @@ public class UserSqlProvider {
         }
         sql.SELECT("name");
         sql.SELECT("age");
+        sql.SELECT("status");
         sql.FROM("user");
         applyWhere(sql, example, false);
         
@@ -78,6 +83,10 @@ public class UserSqlProvider {
             sql.SET("age = #{record.age,jdbcType=INTEGER}");
         }
         
+        if (record.getStatus() != null) {
+            sql.SET("status = #{record.status,jdbcType=INTEGER}");
+        }
+        
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -89,6 +98,7 @@ public class UserSqlProvider {
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
         sql.SET("name = #{record.name,jdbcType=CHAR}");
         sql.SET("age = #{record.age,jdbcType=INTEGER}");
+        sql.SET("status = #{record.status,jdbcType=INTEGER}");
         
         UserExample example = (UserExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -105,6 +115,10 @@ public class UserSqlProvider {
         
         if (record.getAge() != null) {
             sql.SET("age = #{age,jdbcType=INTEGER}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=INTEGER}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");

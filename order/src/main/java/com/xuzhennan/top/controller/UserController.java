@@ -23,8 +23,15 @@ public class UserController {
 
     @ApiOperation("创建用户")
     @RequestMapping("/creatUser")
-    public CommonResult<User> creatUser(User user) {
-        User creatUser = userService.creatUser(user);
+    public CommonResult<Integer> creatUser(User user) {
+        int creatUser = userService.creatUser(user);
+        return CommonResult.success(creatUser);
+    }
+
+    @ApiOperation("删除用户")
+    @RequestMapping("/deleteUser")
+    public CommonResult<Integer> deleteUser(int id) {
+        int creatUser = userService.deletcUser(id);
         return CommonResult.success(creatUser);
     }
 }
