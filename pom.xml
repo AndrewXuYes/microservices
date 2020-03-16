@@ -84,6 +84,7 @@
                 <artifactId>common</artifactId>
                 <version>${common.version}</version>
             </dependency>
+
             <!--Spring Cloud 相关依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
