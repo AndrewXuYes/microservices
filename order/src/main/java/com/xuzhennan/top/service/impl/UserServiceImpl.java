@@ -15,22 +15,22 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User creatUser() {
+    public User creatUser(User user) {
         return null;
     }
 
     @Override
-    public User deletcUser() {
+    public User deletcUser(User user) {
         return null;
     }
 
     @Override
-    public User changeUser() {
+    public User changeUser(User user) {
         return null;
     }
 
     @Override
-    public User findUser() {
+    public User findUser(User user) {
         return null;
     }
 
