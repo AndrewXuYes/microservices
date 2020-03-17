@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Override
     public Order creatOrder(Order order) {

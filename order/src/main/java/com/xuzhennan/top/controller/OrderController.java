@@ -9,28 +9,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 /**
  * @author andrew
  * @date 2020/2/24 22:26
  */
 @Controller
-@Api(tags = "UserController", description = "用户管理")
-@RequestMapping("/user")
+@Api(tags = "OrderController", description = "订单管理")
+@RequestMapping("/order")
 public class OrderController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation("创建用户")
-    @RequestMapping("/creatUser")
-    public CommonResult<Integer> creatUser(User user) {
+    @ApiOperation("创建订单")
+    @RequestMapping("/creatOrder")
+    public CommonResult<Integer> creatOrder(User user) {
         int creatUser = userService.creatUser(user);
         return CommonResult.success(creatUser);
     }
 
-    @ApiOperation("删除用户")
-    @RequestMapping("/deleteUser")
-    public CommonResult<Integer> deleteUser(Long id) {
+    @ApiOperation("删除订单")
+    @RequestMapping("/deleteOrder")
+    public CommonResult<Integer> deleteOrder(Long id) {
         int creatUser = userService.deletcUser(id);
         return CommonResult.success(creatUser);
     }
