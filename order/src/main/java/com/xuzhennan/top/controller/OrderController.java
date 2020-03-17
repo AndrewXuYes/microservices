@@ -8,14 +8,16 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author andrew
  * @date 2020/2/24 22:26
  */
 @Controller
-@Api(tags = "OrderController", description = "订单管理")
+@ResponseBody
 @RequestMapping("/order")
+@Api(tags = "OrderController", description = "订单管理")
 public class OrderController {
     @Autowired
     private UserService userService;

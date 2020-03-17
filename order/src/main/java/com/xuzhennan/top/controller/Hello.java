@@ -16,7 +16,7 @@ public class Hello {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String Hello(String astr) {
         log.info("helloInit");
-        return "谢谢观看:这是初始化页面";
+        return "谢谢观看:这是初始化页面  " + astr;
     }
 
 }

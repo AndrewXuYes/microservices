@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 /**
@@ -15,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2020/2/24 22:26
  */
 @Controller
-@Api(tags = "UserController", description = "用户管理")
+@ResponseBody
 @RequestMapping("/user")
+@Api(tags = "UserController", description = "用户管理")
 public class UserController {
     @Autowired
     private UserService userService;
