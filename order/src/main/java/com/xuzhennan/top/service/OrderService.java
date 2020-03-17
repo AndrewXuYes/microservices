@@ -5,14 +5,12 @@ import com.xuzhennan.top.model.Order;
 
 public interface OrderService {
 
-    Order creatOrder();
+    Order creatOrder(Order order);
 
-    Order deleteOrder();
+    Order deleteOrder(Long id);
 
-    Order changeOrder();
+    Order changeOrder(Order order);
 
-    Order findOrder();
-
-    Order findAllOrder();
+    Order findOrder(Long id);
 
 }

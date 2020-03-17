@@ -10,31 +10,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
-    private OrderMapper orderMapper;
 
     @Override
-    public Order creatOrder() {
+    public Order creatOrder(Order order) {
         return null;
     }
 
     @Override
-    public Order deleteOrder() {
+    public Order deleteOrder(Long id) {
         return null;
     }
 
     @Override
-    public Order changeOrder() {
+    public Order changeOrder(Order order) {
         return null;
     }
 
     @Override
-    public Order findOrder() {
-        return null;
-    }
-
-    @Override
-    public Order findAllOrder() {
+    public Order findOrder(Long id) {
         return null;
     }
 }

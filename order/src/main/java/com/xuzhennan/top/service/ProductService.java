@@ -1,20 +1,16 @@
 package com.xuzhennan.top.service;
 
 import com.xuzhennan.top.model.Product;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface ProductService {
 
-    Product creatProduct();
+    @Transactional
+    int creatProduct(Product product);
 
-    Product deletcProduct();
+    int deletcProduct(Long id);
 
-    Product deletcAllProduct();
+    int changeProduct(Product product);
 
-    Product changeProduct();
-
-    Product findProduct();
-
-    List<Product> findAllProduct();
+    Product findProduct(Long id);
 }

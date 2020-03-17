@@ -2,49 +2,45 @@ package com.xuzhennan.top.service.impl;
 
 import com.xuzhennan.top.mapper.ProductMapper;
 import com.xuzhennan.top.model.Product;
+import com.xuzhennan.top.model.ProductExample;
 import com.xuzhennan.top.service.ProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 商品优选Service实现类
- */
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductMapper productMapper;
 
-
     @Override
-    public Product creatProduct() {
-        return null;
+    public int creatProduct(Product productParams) {
+        Product product = new Product();
+        BeanUtils.copyProperties(productParams, product);
+        //查询是否有相同用户名的用户
+        ProductExample example = new ProductExample();
+        example.createCriteria().andProductIdEqualTo(product.getProductId());
+        List<Product> productList = productMapper.selectByExample(example);
+
+        return productList.size() > 0 ? 0 : productMapper.insert(product);
     }
 
     @Override
-    public Product deletcProduct() {
-        return null;
+    public int deletcProduct(Long product) {
+        return productMapper.deleteByPrimaryKey(product);
     }
 
     @Override
-    public Product deletcAllProduct() {
-        return null;
+    public int changeProduct(Product product) {
+        return productMapper.updateByPrimaryKey(product);
     }
 
     @Override
-    public Product changeProduct() {
-        return null;
-    }
-
-    @Override
-    public Product findProduct() {
-        return null;
-    }
-
-    @Override
-    public List<Product> findAllProduct() {
-        return null;
+    public Product findProduct(Long id) {
+        return productMapper.selectByPrimaryKey(id);
     }
 }
