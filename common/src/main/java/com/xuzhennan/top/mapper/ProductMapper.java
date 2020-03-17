@@ -27,49 +27,54 @@ public interface ProductMapper {
 
     @Delete({
         "delete from product",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into product (name, price)",
-        "values (#{name,jdbcType=CHAR}, #{price,jdbcType=DECIMAL})"
+        "insert into product (product_id, product_name, ",
+        "product_price)",
+        "values (#{productId,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, ",
+        "#{productPrice,jdbcType=INTEGER})"
     })
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Product record);
 
     @InsertProvider(type=ProductSqlProvider.class, method="insertSelective")
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insertSelective(Product record);
 
     @SelectProvider(type=ProductSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_name", property="productName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="product_price", property="productPrice", jdbcType=JdbcType.INTEGER)
     })
     List<Product> selectByExampleWithRowbounds(ProductExample example, RowBounds rowBounds);
 
     @SelectProvider(type=ProductSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_name", property="productName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="product_price", property="productPrice", jdbcType=JdbcType.INTEGER)
     })
     List<Product> selectByExample(ProductExample example);
 
     @Select({
         "select",
-        "id, name, price",
+        "id, product_id, product_name, product_price",
         "from product",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="price", property="price", jdbcType=JdbcType.DECIMAL)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_name", property="productName", jdbcType=JdbcType.VARCHAR),
+        @Result(column="product_price", property="productPrice", jdbcType=JdbcType.INTEGER)
     })
-    Product selectByPrimaryKey(Integer id);
+    Product selectByPrimaryKey(Long id);
 
     @UpdateProvider(type=ProductSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") Product record, @Param("example") ProductExample example);
@@ -82,9 +87,10 @@ public interface ProductMapper {
 
     @Update({
         "update product",
-        "set name = #{name,jdbcType=CHAR},",
-          "price = #{price,jdbcType=DECIMAL}",
-        "where id = #{id,jdbcType=INTEGER}"
+        "set product_id = #{productId,jdbcType=BIGINT},",
+          "product_name = #{productName,jdbcType=VARCHAR},",
+          "product_price = #{productPrice,jdbcType=INTEGER}",
+        "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Product record);
 }

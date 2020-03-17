@@ -29,20 +29,36 @@ public class OrderSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("order");
         
-        if (record.getProductname() != null) {
-            sql.VALUES("productname", "#{productname,jdbcType=CHAR}");
+        if (record.getUserId() != null) {
+            sql.VALUES("user_id", "#{userId,jdbcType=BIGINT}");
         }
         
-        if (record.getUsername() != null) {
-            sql.VALUES("username", "#{username,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.VALUES("product_id", "#{productId,jdbcType=BIGINT}");
         }
         
-        if (record.getSumprice() != null) {
-            sql.VALUES("sumprice", "#{sumprice,jdbcType=DECIMAL}");
+        if (record.getOrderSn() != null) {
+            sql.VALUES("order_sn", "#{orderSn,jdbcType=VARCHAR}");
         }
         
-        if (record.getNumber() != null) {
-            sql.VALUES("number", "#{number,jdbcType=INTEGER}");
+        if (record.getCreateTime() != null) {
+            sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getUserUsername() != null) {
+            sql.VALUES("user_username", "#{userUsername,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getTotalAmount() != null) {
+            sql.VALUES("total_amount", "#{totalAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+        
+        if (record.getNote() != null) {
+            sql.VALUES("note", "#{note,jdbcType=VARCHAR}");
         }
         
         return sql.toString();
@@ -55,10 +71,14 @@ public class OrderSqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("productname");
-        sql.SELECT("username");
-        sql.SELECT("sumprice");
-        sql.SELECT("number");
+        sql.SELECT("user_id");
+        sql.SELECT("product_id");
+        sql.SELECT("order_sn");
+        sql.SELECT("create_time");
+        sql.SELECT("user_username");
+        sql.SELECT("total_amount");
+        sql.SELECT("status");
+        sql.SELECT("note");
         sql.FROM("order");
         applyWhere(sql, example, false);
         
@@ -77,23 +97,39 @@ public class OrderSqlProvider {
         sql.UPDATE("order");
         
         if (record.getId() != null) {
-            sql.SET("id = #{record.id,jdbcType=INTEGER}");
+            sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
-        if (record.getProductname() != null) {
-            sql.SET("productname = #{record.productname,jdbcType=CHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{record.userId,jdbcType=BIGINT}");
         }
         
-        if (record.getUsername() != null) {
-            sql.SET("username = #{record.username,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
         }
         
-        if (record.getSumprice() != null) {
-            sql.SET("sumprice = #{record.sumprice,jdbcType=DECIMAL}");
+        if (record.getOrderSn() != null) {
+            sql.SET("order_sn = #{record.orderSn,jdbcType=VARCHAR}");
         }
         
-        if (record.getNumber() != null) {
-            sql.SET("number = #{record.number,jdbcType=INTEGER}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getUserUsername() != null) {
+            sql.SET("user_username = #{record.userUsername,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getTotalAmount() != null) {
+            sql.SET("total_amount = #{record.totalAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{record.status,jdbcType=INTEGER}");
+        }
+        
+        if (record.getNote() != null) {
+            sql.SET("note = #{record.note,jdbcType=VARCHAR}");
         }
         
         applyWhere(sql, example, true);
@@ -104,11 +140,15 @@ public class OrderSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("order");
         
-        sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("productname = #{record.productname,jdbcType=CHAR}");
-        sql.SET("username = #{record.username,jdbcType=CHAR}");
-        sql.SET("sumprice = #{record.sumprice,jdbcType=DECIMAL}");
-        sql.SET("number = #{record.number,jdbcType=INTEGER}");
+        sql.SET("id = #{record.id,jdbcType=BIGINT}");
+        sql.SET("user_id = #{record.userId,jdbcType=BIGINT}");
+        sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
+        sql.SET("order_sn = #{record.orderSn,jdbcType=VARCHAR}");
+        sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("user_username = #{record.userUsername,jdbcType=VARCHAR}");
+        sql.SET("total_amount = #{record.totalAmount,jdbcType=DECIMAL}");
+        sql.SET("status = #{record.status,jdbcType=INTEGER}");
+        sql.SET("note = #{record.note,jdbcType=VARCHAR}");
         
         OrderExample example = (OrderExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -119,23 +159,39 @@ public class OrderSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("order");
         
-        if (record.getProductname() != null) {
-            sql.SET("productname = #{productname,jdbcType=CHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{userId,jdbcType=BIGINT}");
         }
         
-        if (record.getUsername() != null) {
-            sql.SET("username = #{username,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.SET("product_id = #{productId,jdbcType=BIGINT}");
         }
         
-        if (record.getSumprice() != null) {
-            sql.SET("sumprice = #{sumprice,jdbcType=DECIMAL}");
+        if (record.getOrderSn() != null) {
+            sql.SET("order_sn = #{orderSn,jdbcType=VARCHAR}");
         }
         
-        if (record.getNumber() != null) {
-            sql.SET("number = #{number,jdbcType=INTEGER}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
         
-        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        if (record.getUserUsername() != null) {
+            sql.SET("user_username = #{userUsername,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getTotalAmount() != null) {
+            sql.SET("total_amount = #{totalAmount,jdbcType=DECIMAL}");
+        }
+        
+        if (record.getStatus() != null) {
+            sql.SET("status = #{status,jdbcType=INTEGER}");
+        }
+        
+        if (record.getNote() != null) {
+            sql.SET("note = #{note,jdbcType=VARCHAR}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=BIGINT}");
         
         return sql.toString();
     }

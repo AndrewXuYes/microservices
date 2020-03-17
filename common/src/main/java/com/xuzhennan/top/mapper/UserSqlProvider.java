@@ -29,16 +29,28 @@ public class UserSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("user");
         
-        if (record.getName() != null) {
-            sql.VALUES("name", "#{name,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.VALUES("username", "#{username,jdbcType=VARCHAR}");
         }
         
-        if (record.getAge() != null) {
-            sql.VALUES("age", "#{age,jdbcType=INTEGER}");
+        if (record.getPassword() != null) {
+            sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.VALUES("phone", "#{phone,jdbcType=VARCHAR}");
         }
         
         if (record.getStatus() != null) {
             sql.VALUES("status", "#{status,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getGender() != null) {
+            sql.VALUES("gender", "#{gender,jdbcType=INTEGER}");
         }
         
         return sql.toString();
@@ -51,9 +63,12 @@ public class UserSqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("name");
-        sql.SELECT("age");
+        sql.SELECT("username");
+        sql.SELECT("password");
+        sql.SELECT("phone");
         sql.SELECT("status");
+        sql.SELECT("create_time");
+        sql.SELECT("gender");
         sql.FROM("user");
         applyWhere(sql, example, false);
         
@@ -72,19 +87,31 @@ public class UserSqlProvider {
         sql.UPDATE("user");
         
         if (record.getId() != null) {
-            sql.SET("id = #{record.id,jdbcType=INTEGER}");
+            sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
-        if (record.getName() != null) {
-            sql.SET("name = #{record.name,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.SET("username = #{record.username,jdbcType=VARCHAR}");
         }
         
-        if (record.getAge() != null) {
-            sql.SET("age = #{record.age,jdbcType=INTEGER}");
+        if (record.getPassword() != null) {
+            sql.SET("password = #{record.password,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.SET("phone = #{record.phone,jdbcType=VARCHAR}");
         }
         
         if (record.getStatus() != null) {
             sql.SET("status = #{record.status,jdbcType=INTEGER}");
+        }
+        
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getGender() != null) {
+            sql.SET("gender = #{record.gender,jdbcType=INTEGER}");
         }
         
         applyWhere(sql, example, true);
@@ -95,10 +122,13 @@ public class UserSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("user");
         
-        sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("name = #{record.name,jdbcType=CHAR}");
-        sql.SET("age = #{record.age,jdbcType=INTEGER}");
+        sql.SET("id = #{record.id,jdbcType=BIGINT}");
+        sql.SET("username = #{record.username,jdbcType=VARCHAR}");
+        sql.SET("password = #{record.password,jdbcType=VARCHAR}");
+        sql.SET("phone = #{record.phone,jdbcType=VARCHAR}");
         sql.SET("status = #{record.status,jdbcType=INTEGER}");
+        sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("gender = #{record.gender,jdbcType=INTEGER}");
         
         UserExample example = (UserExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -109,19 +139,31 @@ public class UserSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("user");
         
-        if (record.getName() != null) {
-            sql.SET("name = #{name,jdbcType=CHAR}");
+        if (record.getUsername() != null) {
+            sql.SET("username = #{username,jdbcType=VARCHAR}");
         }
         
-        if (record.getAge() != null) {
-            sql.SET("age = #{age,jdbcType=INTEGER}");
+        if (record.getPassword() != null) {
+            sql.SET("password = #{password,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.SET("phone = #{phone,jdbcType=VARCHAR}");
         }
         
         if (record.getStatus() != null) {
             sql.SET("status = #{status,jdbcType=INTEGER}");
         }
         
-        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
+        }
+        
+        if (record.getGender() != null) {
+            sql.SET("gender = #{gender,jdbcType=INTEGER}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=BIGINT}");
         
         return sql.toString();
     }

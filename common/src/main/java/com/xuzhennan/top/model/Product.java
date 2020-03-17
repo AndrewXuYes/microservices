@@ -4,36 +4,46 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-    private Integer id;
+    private Long id;
 
-    private String name;
+    private Long productId;
 
-    private Long price;
+    private String productName;
+
+    private Integer productPrice;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
-    public Long getPrice() {
-        return price;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setPrice(Long price) {
-        this.price = price;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Integer getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(Integer productPrice) {
+        this.productPrice = productPrice;
     }
 
     @Override
@@ -43,8 +53,9 @@ public class Product implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", price=").append(price);
+        sb.append(", productId=").append(productId);
+        sb.append(", productName=").append(productName);
+        sb.append(", productPrice=").append(productPrice);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

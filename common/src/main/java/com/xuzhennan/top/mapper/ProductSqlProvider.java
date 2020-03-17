@@ -29,12 +29,16 @@ public class ProductSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("product");
         
-        if (record.getName() != null) {
-            sql.VALUES("name", "#{name,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.VALUES("product_id", "#{productId,jdbcType=BIGINT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.VALUES("price", "#{price,jdbcType=DECIMAL}");
+        if (record.getProductName() != null) {
+            sql.VALUES("product_name", "#{productName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getProductPrice() != null) {
+            sql.VALUES("product_price", "#{productPrice,jdbcType=INTEGER}");
         }
         
         return sql.toString();
@@ -47,8 +51,9 @@ public class ProductSqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("name");
-        sql.SELECT("price");
+        sql.SELECT("product_id");
+        sql.SELECT("product_name");
+        sql.SELECT("product_price");
         sql.FROM("product");
         applyWhere(sql, example, false);
         
@@ -67,15 +72,19 @@ public class ProductSqlProvider {
         sql.UPDATE("product");
         
         if (record.getId() != null) {
-            sql.SET("id = #{record.id,jdbcType=INTEGER}");
+            sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
-        if (record.getName() != null) {
-            sql.SET("name = #{record.name,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.SET("price = #{record.price,jdbcType=DECIMAL}");
+        if (record.getProductName() != null) {
+            sql.SET("product_name = #{record.productName,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getProductPrice() != null) {
+            sql.SET("product_price = #{record.productPrice,jdbcType=INTEGER}");
         }
         
         applyWhere(sql, example, true);
@@ -86,9 +95,10 @@ public class ProductSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("product");
         
-        sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("name = #{record.name,jdbcType=CHAR}");
-        sql.SET("price = #{record.price,jdbcType=DECIMAL}");
+        sql.SET("id = #{record.id,jdbcType=BIGINT}");
+        sql.SET("product_id = #{record.productId,jdbcType=BIGINT}");
+        sql.SET("product_name = #{record.productName,jdbcType=VARCHAR}");
+        sql.SET("product_price = #{record.productPrice,jdbcType=INTEGER}");
         
         ProductExample example = (ProductExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -99,15 +109,19 @@ public class ProductSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("product");
         
-        if (record.getName() != null) {
-            sql.SET("name = #{name,jdbcType=CHAR}");
+        if (record.getProductId() != null) {
+            sql.SET("product_id = #{productId,jdbcType=BIGINT}");
         }
         
-        if (record.getPrice() != null) {
-            sql.SET("price = #{price,jdbcType=DECIMAL}");
+        if (record.getProductName() != null) {
+            sql.SET("product_name = #{productName,jdbcType=VARCHAR}");
         }
         
-        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        if (record.getProductPrice() != null) {
+            sql.SET("product_price = #{productPrice,jdbcType=INTEGER}");
+        }
+        
+        sql.WHERE("id = #{id,jdbcType=BIGINT}");
         
         return sql.toString();
     }

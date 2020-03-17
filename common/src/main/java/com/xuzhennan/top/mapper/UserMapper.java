@@ -27,54 +27,65 @@ public interface UserMapper {
 
     @Delete({
         "delete from user",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into user (name, age, ",
-        "status)",
-        "values (#{name,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, ",
-        "#{status,jdbcType=INTEGER})"
+        "insert into user (username, password, ",
+        "phone, status, create_time, ",
+        "gender)",
+        "values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, ",
+        "#{phone,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{gender,jdbcType=INTEGER})"
     })
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(User record);
 
     @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insertSelective(User record);
 
     @SelectProvider(type=UserSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
-        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="username", property="username", jdbcType=JdbcType.VARCHAR),
+        @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+        @Result(column="phone", property="phone", jdbcType=JdbcType.VARCHAR),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="gender", property="gender", jdbcType=JdbcType.INTEGER)
     })
     List<User> selectByExampleWithRowbounds(UserExample example, RowBounds rowBounds);
 
     @SelectProvider(type=UserSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
-        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="username", property="username", jdbcType=JdbcType.VARCHAR),
+        @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+        @Result(column="phone", property="phone", jdbcType=JdbcType.VARCHAR),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="gender", property="gender", jdbcType=JdbcType.INTEGER)
     })
     List<User> selectByExample(UserExample example);
 
     @Select({
         "select",
-        "id, name, age, status",
+        "id, username, password, phone, status, create_time, gender",
         "from user",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="name", property="name", jdbcType=JdbcType.CHAR),
-        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
-        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="username", property="username", jdbcType=JdbcType.VARCHAR),
+        @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+        @Result(column="phone", property="phone", jdbcType=JdbcType.VARCHAR),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="gender", property="gender", jdbcType=JdbcType.INTEGER)
     })
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(Long id);
 
     @UpdateProvider(type=UserSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
@@ -87,10 +98,13 @@ public interface UserMapper {
 
     @Update({
         "update user",
-        "set name = #{name,jdbcType=CHAR},",
-          "age = #{age,jdbcType=INTEGER},",
-          "status = #{status,jdbcType=INTEGER}",
-        "where id = #{id,jdbcType=INTEGER}"
+        "set username = #{username,jdbcType=VARCHAR},",
+          "password = #{password,jdbcType=VARCHAR},",
+          "phone = #{phone,jdbcType=VARCHAR},",
+          "status = #{status,jdbcType=INTEGER},",
+          "create_time = #{createTime,jdbcType=TIMESTAMP},",
+          "gender = #{gender,jdbcType=INTEGER}",
+        "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(User record);
 }

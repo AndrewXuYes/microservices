@@ -27,57 +27,74 @@ public interface OrderMapper {
 
     @Delete({
         "delete from order",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     @Insert({
-        "insert into order (productname, username, ",
-        "sumprice, number)",
-        "values (#{productname,jdbcType=CHAR}, #{username,jdbcType=CHAR}, ",
-        "#{sumprice,jdbcType=DECIMAL}, #{number,jdbcType=INTEGER})"
+        "insert into order (user_id, product_id, ",
+        "order_sn, create_time, ",
+        "user_username, total_amount, ",
+        "status, note)",
+        "values (#{userId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, ",
+        "#{orderSn,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{userUsername,jdbcType=VARCHAR}, #{totalAmount,jdbcType=DECIMAL}, ",
+        "#{status,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insert(Order record);
 
     @InsertProvider(type=OrderSqlProvider.class, method="insertSelective")
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Long.class)
     int insertSelective(Order record);
 
     @SelectProvider(type=OrderSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
-        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="user_id", property="userId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="order_sn", property="orderSn", jdbcType=JdbcType.VARCHAR),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="user_username", property="userUsername", jdbcType=JdbcType.VARCHAR),
+        @Result(column="total_amount", property="totalAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="note", property="note", jdbcType=JdbcType.VARCHAR)
     })
     List<Order> selectByExampleWithRowbounds(OrderExample example, RowBounds rowBounds);
 
     @SelectProvider(type=OrderSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
-        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="user_id", property="userId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="order_sn", property="orderSn", jdbcType=JdbcType.VARCHAR),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="user_username", property="userUsername", jdbcType=JdbcType.VARCHAR),
+        @Result(column="total_amount", property="totalAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="note", property="note", jdbcType=JdbcType.VARCHAR)
     })
     List<Order> selectByExample(OrderExample example);
 
     @Select({
         "select",
-        "id, productname, username, sumprice, number",
+        "id, user_id, product_id, order_sn, create_time, user_username, total_amount, ",
+        "status, note",
         "from order",
-        "where id = #{id,jdbcType=INTEGER}"
+        "where id = #{id,jdbcType=BIGINT}"
     })
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="productname", property="productname", jdbcType=JdbcType.CHAR),
-        @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
-        @Result(column="sumprice", property="sumprice", jdbcType=JdbcType.DECIMAL),
-        @Result(column="number", property="number", jdbcType=JdbcType.INTEGER)
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="user_id", property="userId", jdbcType=JdbcType.BIGINT),
+        @Result(column="product_id", property="productId", jdbcType=JdbcType.BIGINT),
+        @Result(column="order_sn", property="orderSn", jdbcType=JdbcType.VARCHAR),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="user_username", property="userUsername", jdbcType=JdbcType.VARCHAR),
+        @Result(column="total_amount", property="totalAmount", jdbcType=JdbcType.DECIMAL),
+        @Result(column="status", property="status", jdbcType=JdbcType.INTEGER),
+        @Result(column="note", property="note", jdbcType=JdbcType.VARCHAR)
     })
-    Order selectByPrimaryKey(Integer id);
+    Order selectByPrimaryKey(Long id);
 
     @UpdateProvider(type=OrderSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") Order record, @Param("example") OrderExample example);
@@ -90,11 +107,15 @@ public interface OrderMapper {
 
     @Update({
         "update order",
-        "set productname = #{productname,jdbcType=CHAR},",
-          "username = #{username,jdbcType=CHAR},",
-          "sumprice = #{sumprice,jdbcType=DECIMAL},",
-          "number = #{number,jdbcType=INTEGER}",
-        "where id = #{id,jdbcType=INTEGER}"
+        "set user_id = #{userId,jdbcType=BIGINT},",
+          "product_id = #{productId,jdbcType=BIGINT},",
+          "order_sn = #{orderSn,jdbcType=VARCHAR},",
+          "create_time = #{createTime,jdbcType=TIMESTAMP},",
+          "user_username = #{userUsername,jdbcType=VARCHAR},",
+          "total_amount = #{totalAmount,jdbcType=DECIMAL},",
+          "status = #{status,jdbcType=INTEGER},",
+          "note = #{note,jdbcType=VARCHAR}",
+        "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(Order record);
 }
