@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Api(tags = "UserController", description = "用户管理")
 @RequestMapping("/user")
-public class UserController {
+public class OrderController {
     @Autowired
     private UserService userService;
 
@@ -33,19 +33,5 @@ public class UserController {
     public CommonResult<Integer> deleteUser(Long id) {
         int creatUser = userService.deletcUser(id);
         return CommonResult.success(creatUser);
-    }
-
-    @ApiOperation("修改用户")
-    @RequestMapping("/changeUser")
-    public CommonResult<Integer> changeUser(User user) {
-        int creatUser = userService.changeUser(user);
-        return CommonResult.success(creatUser);
-    }
-
-    @ApiOperation("查找用户")
-    @RequestMapping("/findUser")
-    public CommonResult<User> findUser(Long id) {
-        User user = userService.findUser(id);
-        return CommonResult.success(user);
     }
 }

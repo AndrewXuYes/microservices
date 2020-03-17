@@ -2,18 +2,17 @@ package com.xuzhennan.top.service;
 
 
 import com.xuzhennan.top.model.User;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
 
+    @Transactional
     int creatUser(User user);
 
-    int deletcUser(int user);
+    int deletcUser(Long user);
 
     int changeUser(User user);
 
-    User findUser(User user);
+    User findUser(Long id);
 
-    List<User> findAllUser();
 }

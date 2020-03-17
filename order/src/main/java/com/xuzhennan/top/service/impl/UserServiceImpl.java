@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -19,41 +18,32 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     @Override
     public int creatUser(User umsAdminParam) {
-
         User user = new User();
         BeanUtils.copyProperties(umsAdminParam, user);
         user.setStatus(1);
         //查询是否有相同用户名的用户
         UserExample example = new UserExample();
-        example.createCriteria().andNameEqualTo(user.getName());
-        List<User> UserList = userMapper.selectByExample(example);
-        if (UserList.size() > 0) {
-            return 0;
-        }
-        int result = userMapper.insert(user);
-        return result;
+        example.createCriteria().andUsernameEqualTo(user.getUsername());
+        List<User> userList = userMapper.selectByExample(example);
+
+        return userList.size() > 0 ? 0 : userMapper.insert(user);
     }
 
     @Override
-    public int deletcUser(int id) {
+    public int deletcUser(Long id) {
         return userMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int changeUser(User user) {
-        return 1;
+        return userMapper.updateByPrimaryKey(user);
     }
 
     @Override
-    public User findUser(User user) {
-        return null;
+    public User findUser(Long id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 
-    @Override
-    public List<User> findAllUser() {
-        return null;
-    }
 }
