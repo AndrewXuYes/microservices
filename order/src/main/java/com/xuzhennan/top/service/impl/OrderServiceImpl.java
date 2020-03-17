@@ -13,18 +13,18 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public Order creatOrder(Order order) {
-        return null;
+    public int creatOrder(Order order) {
+        return 0;
     }
 
     @Override
-    public Order deleteOrder(Long id) {
-        return null;
+    public int deleteOrder(Long id) {
+        return 0;
     }
 
     @Override
-    public Order changeOrder(Order order) {
-        return null;
+    public int changeOrder(Order order) {
+        return 0;
     }
 
     @Override
