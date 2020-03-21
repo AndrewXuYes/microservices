@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-app_name='mall-admin'
+app_name='config'
 docker stop ${app_name}
 echo '----stop container----'
 docker rm ${app_name}
 echo '----rm container----'
 docker rmi `docker images | grep none | awk '{print $3}'`
 echo '----rm none images----'
-docker run -p 8180:8180 --name ${app_name} \
---link mysql:db \
+docker run -p 8301:8301 --name ${app_name} \
 --link mall-registry:mall-registry \
 -v /etc/localtime:/etc/localtime \
 -v /mydata/app/${app_name}/logs:/var/logs \

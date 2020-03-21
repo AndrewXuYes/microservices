@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-app_name='mall-monitor'
+app_name='monitor'
 docker stop ${app_name}
 echo '----stop container----'
 docker rm ${app_name}
