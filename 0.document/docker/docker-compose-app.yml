@@ -7,14 +7,6 @@ services:
       - 8080:8080
     external_links:
       - mysql:db #可以用db这个域名访问mysql服务
-  mall-search:
-    image: mall/mall-search:1.0-SNAPSHOT
-    container_name: mall-search
-    ports:
-      - 8081:8081
-    external_links:
-      - elasticsearch:es #可以用es这个域名访问elasticsearch服务
-      - mysql:db #可以用db这个域名访问mysql服务
   mall-portal:
     image: mall/mall-portal:1.0-SNAPSHOT
     container_name: mall-portal
