@@ -3,6 +3,8 @@ package com.xuzhennan.top.controller;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.xuzhennan.top.api.Consts;
+import com.xuzhennan.top.component.AroundLog;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ public class PageController {
      *
      * @param request 请求
      */
+    @AroundLog
+    @ApiOperation("index")
     @GetMapping("/index")
     public ModelAndView index(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
@@ -37,6 +41,8 @@ public class PageController {
      *
      * @param redirect 是否是跳转回来的
      */
+    @AroundLog
+    @ApiOperation("login")
     @GetMapping("/login")
     public ModelAndView login(Boolean redirect) {
         ModelAndView mv = new ModelAndView();
@@ -48,6 +54,8 @@ public class PageController {
         return mv;
     }
 
+    @AroundLog
+    @ApiOperation("doLogin")
     @GetMapping("/doLogin")
     public String doLogin(HttpSession session) {
         session.setAttribute(Consts.SESSION_KEY, IdUtil.fastUUID());
