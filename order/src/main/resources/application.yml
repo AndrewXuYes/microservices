@@ -40,7 +40,9 @@ spring:
         max-idle: 8
         # 连接池中的最小空闲连接 默认 0
         min-idle: 0
-
+  devtools:
+    livereload:
+      port: 35730
 #  kafka:
 #    # 以逗号分隔的地址列表，用于建立与Kafka集群的初始连接(kafka 默认的端口号为9092)
 #    bootstrap-servers: 118.89.155.112:9092
