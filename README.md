@@ -11,8 +11,7 @@
 | PageHelper       | MyBatis物理分页插件  | http://git.oschina.net/free/Mybatis_PageHelper       |
 | Swagger-UI       | 文档生产工具         | https://github.com/swagger-api/swagger-ui            |
 | Druid            | 数据库连接池         | https://github.com/alibaba/druid                     |
-| Redis            | 分布式缓存           | https://redis.io/                                    |                    |
-| JWT              | JWT登录支持          | https://github.com/jwtk/jjwt                         |
+| Redis            | 分布式缓存           | https://redis.io/                                    |                   |
 | Lombok           | 简化对象封装工具     | https://github.com/rzwitserloot/lombok               |
 | MinIO            | 对象存储             | https://github.com/minio/minio                       |
 | Docker           | 应用容器引擎         | https://www.docker.com/                              |
