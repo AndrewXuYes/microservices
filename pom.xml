@@ -44,9 +44,10 @@
         <spring-data-commons.version>2.1.5.RELEASE</spring-data-commons.version>
         <logstash-logback.version>5.3</logstash-logback.version>
         <admin-starter-server.version>2.1.5</admin-starter-server.version>
-<!--        <minio.version>3.0.10</minio.version>-->
+        <minio.version>3.0.10</minio.version>
         <fastjson.version>1.2.62</fastjson.version>
         <common.version>1.0-SNAPSHOT</common.version>
+        <redisson.version>3.5.0</redisson.version>
     </properties>
 
     <dependencies>
@@ -168,12 +169,18 @@
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${admin-starter-server.version}</version>
             </dependency>
-<!--            &lt;!&ndash;MinIO JAVA SDK&ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>io.minio</groupId>-->
-<!--                <artifactId>minio</artifactId>-->
-<!--                <version>${minio.version}</version>-->
-<!--            </dependency>-->
+            <!--MinIO JAVA SDK-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

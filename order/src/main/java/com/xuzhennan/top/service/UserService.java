@@ -2,7 +2,7 @@ package com.xuzhennan.top.service;
 
 
 import com.xuzhennan.top.model.User;
-import org.springframework.transaction.annotation.Transactional;
+        import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
 
